@@ -10,7 +10,11 @@ export const HeaderContent = styled(Box)(() => ({
   width: '100%',
   maxWidth: '750px',
   margin: 'auto',
-  padding: '40px 0'
+  padding: '40px 10px',
+
+  '@media(max-width: 720px)': {
+    paddingTop: 70
+  }
 }))
 
 export const CreateButton = styled(Button)(({ theme }) => ({
@@ -31,5 +35,5 @@ export const Content = styled(Box)(() => ({
   width: '100%',
   maxWidth: '750px',
   margin: 'auto',
-  padding: '40px 0'
+  padding: '40px 10px'
 }))

@@ -7,7 +7,9 @@ export const Container = styled(Paper)(() => ({
   margin: 'auto',
   borderRadius: '8px',
   boxShadow: 'none',
-  position: 'relative'
+  position: 'relative',
+  marginLeft: '10px',
+  marginRight: '10px'
 }))
 
 export const CloseButton = styled(ButtonBase)(() => ({

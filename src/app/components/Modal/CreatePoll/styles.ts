@@ -9,7 +9,9 @@ export const Container = styled(Paper)(() => ({
   margin: 'auto',
   borderRadius: '8px',
   boxShadow: 'none',
-  position: 'relative'
+  position: 'relative',
+  marginLeft: '10px',
+  marginRight: '10px'
 }))
 
 export const Add = styled(AddIcon)(() => ({
@@ -46,7 +48,15 @@ export const Footer = styled(Box)(() => ({
   borderBottomRightRadius: '8px',
   padding: '15px 35px',
   display: 'flex',
-  justifyContent: 'space-between'
+  justifyContent: 'space-between',
+
+  '@media(max-width: 720px)': {
+    flexDirection: 'column-reverse',
+
+    '& button': {
+      marginBottom: 15
+    }
+  }
 }))
 
 export const Alert = styled(PriorityHighIcon)(({ theme }) => ({
