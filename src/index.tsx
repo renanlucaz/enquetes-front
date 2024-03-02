@@ -19,7 +19,7 @@ const persistor = persistStore(store)
 root.render(
   <React.StrictMode>
     <ThemeProvider>
-      <GoogleOAuthProvider clientId='851751328045-s9kd816afoc3vfe14de8chcafd3obvts.apps.googleusercontent.com'>
+      <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID ?? ''}>
         <SnackbarProvider>
           <Provider store={store}>
             <PersistGate persistor={persistor}>

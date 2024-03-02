@@ -1,6 +1,5 @@
 import { Box, Typography } from '@mui/material'
 import { FcGoogle } from 'react-icons/fc'
-import { RxGithubLogo } from 'react-icons/rx'
 import { useGoogleLogin } from '@react-oauth/google'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
@@ -9,6 +8,7 @@ import { Button, Container } from './styles'
 import { useLoginMutation } from '../../../services/auth'
 import { login } from '../auth.slice'
 import { jwtDecode } from 'jwt-decode'
+import { enqueueSnackbar } from 'notistack'
 
 export function LoginCard(): JSX.Element {
   const navigate = useNavigate()
@@ -37,9 +37,13 @@ export function LoginCard(): JSX.Element {
               // @ts-expect-error Pendente ajustar tipagens do retorno da API
               dispatch(login({ jwtToken: response.data.token, user }))
             })
-            .catch(err => err)
+            .catch(() => {
+              enqueueSnackbar('Erro ao fazer login', { variant: 'error' })
+            })
         })
-        .catch(() => {})
+        .catch(() => {
+          enqueueSnackbar('Erro ao fazer login', { variant: 'error' })
+        })
 
       navigate('/')
     },
